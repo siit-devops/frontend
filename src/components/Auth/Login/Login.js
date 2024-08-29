@@ -4,7 +4,7 @@ export const Login = () => {
   return (
     <section className="banner-area relative">
       <div className="overlay overlay-bg"></div>
-      <div className="container rounded">
+      <div className="container">
         <div className="row fullscreen align-items-center justify-content-between">
           <div className="col-lg-5 col-md-6 banner-right">
             <h1 className="text-white">BOOKING</h1>
