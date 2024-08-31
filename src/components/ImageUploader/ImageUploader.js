@@ -9,17 +9,17 @@ const ImageUploader = ({setImages}) => {
 
         const data = new FormData();
         data.append("file", file);
-        data.append("upload_preset", 'buky_images');
+        data.append("upload_preset", 'booking_images');
 
-        let url = "https://res.cloudinary.com/dkdue4xbo/image/upload/v1660424564/assets/NoImage_bt6wan.png"
+        let url = "https://res.cloudinary.com/dn1hzzel2/image/upload/v1660424564/assets/NoImage_bt6wan.png"
         try {
             if (file && file !== url) {
                 const uploadRes = await axios.post(
-                    "https://api.cloudinary.com/v1_1/dkdue4xbo/image/upload",
+                    "https://api.cloudinary.com/v1_1/dn1hzzel2/image/upload",
                     data
                 );
 
-                url = uploadRes?.data?.secure_url ?? "https://res.cloudinary.com/dkdue4xbo/image/upload/v1660424564/assets/NoImage_bt6wan.png";
+                url = uploadRes?.data?.secure_url ?? "https://res.cloudinary.com/dn1hzzel2/image/upload/v1660424564/assets/NoImage_bt6wan.png";
             }
         } catch (err) {
             console.error(err);
