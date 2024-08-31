@@ -21,7 +21,13 @@ export const MyAccommodations = () => {
 
   const deleteAccommodation = (id, name) => {
     if(window.confirm(`Are you sure you want to delete Accommodation: "${name}"`)) {
-      deleteAccommodationById(id);
+      deleteAccommodationById(id)
+      .then((res) => {
+        window.location.href = "/my-accommodations"
+      })
+      .catch((err) => {
+        alert(err.message)
+      })
     }
   }
 
