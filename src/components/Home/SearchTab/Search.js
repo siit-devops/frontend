@@ -1,6 +1,7 @@
 import { useState } from "react";
 import LocationSelect from "../../LocationSelect/LocationSelect";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const Search = () => {
   const [searchData, setSearchData] = useState({
@@ -28,7 +29,12 @@ export const Search = () => {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    navigate("/results", { state: searchData });
+    if (searchData.from == null || searchData.to == null) {
+      toast.error('Start and End dates are required')
+    }
+    else {
+      navigate("/results", { state: searchData });
+    }
   };
 
   return (

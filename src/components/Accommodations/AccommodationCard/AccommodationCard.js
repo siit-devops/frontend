@@ -1,30 +1,8 @@
 import { useEffect, useState } from "react";
 import { getRole } from "../../../services/AuthService";
 
-const result = {
-  accommodation: {
-    id: 1,
-    name: "Helena",
-    tags: ["TV", "AC", "WiFi", "Parking"],
-    images: [
-      "https://cf.bstatic.com/xdata/images/hotel/max1024x768/137008976.jpg?k=6a65a39ca1a6195c1c8cda5936ef8aa6b9b70f6769e327664072ee175e8abc0d&o=&hp=1",
-    ],
-    location: {
-      id: 1,
-      name: "Bla bla",
-      fullAddress: "fsdfjk dskf ksd",
-      lon: 19.001,
-      lat: 43.0012,
-    },
-  },
-  rating: 4,
-  totalPrice: 200,
-  pricePerGuest: 40,
-  distance: 4500,
-};
 
-// export const AccommodationCard = ({ result, makeReservation }) => {
-export const AccommodationCard = ({ makeReservation }) => {
+export const AccommodationCard = ({ result, makeReservation }) => {
   const [stars, setStars] = useState([]);
 
   useEffect(() => {

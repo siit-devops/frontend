@@ -20,7 +20,7 @@ export const getRole = () => {
 
   const decoded = jwtDecode(token);
 
-  return decoded.role;
+  return decoded.realm_access.roles;
 };
 
 export const getUerId = () => {

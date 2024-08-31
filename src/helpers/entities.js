@@ -310,7 +310,30 @@ export const accommodations = [
 export const accommodationResults = [
   {
     accommodation: {
-      id: 1,
+      id: '3e77c66c-f316-423e-a677-3ad243439c16',
+      userId: '3758dd13-96cb-4a24-97b9-342564edfb7a',
+      name: "Helenaaaa",
+      tags: ["TV", "AC", "WiFi", "Parking"],
+      images: [
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/137008976.jpg?k=6a65a39ca1a6195c1c8cda5936ef8aa6b9b70f6769e327664072ee175e8abc0d&o=&hp=1",
+      ],
+      location: {
+        id: 1,
+        name: "Bla bla",
+        fullAddress: "fsdfjk dskf ksd",
+        lon: 19.001,
+        lat: 43.0012,
+      },
+    },
+    rating: 4,
+    totalPrice: 200,
+    pricePerGuest: 40,
+    distance: 4500,
+  },
+  {
+    accommodation: {
+      id: '1ebd4752-abf8-4178-96c1-fa73c81ef391',
+      userId: 'f24be8fc-ae70-4744-a85c-8f5e050627e7',
       name: "Helena",
       tags: ["TV", "AC", "WiFi", "Parking"],
       images: [
@@ -331,7 +354,29 @@ export const accommodationResults = [
   },
   {
     accommodation: {
-      id: 2,
+      id: '2ebd4752-abf8-4178-96c1-fa73c81ef392',
+      userId: 'f24be8fc-ae70-4744-a85c-8f5e050627e7',
+      tags: ["TV", "AC", "WiFi", "Parking"],
+      images: [
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/137008976.jpg?k=6a65a39ca1a6195c1c8cda5936ef8aa6b9b70f6769e327664072ee175e8abc0d&o=&hp=1",
+      ],
+      location: {
+        id: 1,
+        name: "Bla bla",
+        fullAddress: "fsdfjk dskf ksd",
+        lon: 19.001,
+        lat: 43.0012,
+      },
+    },
+    rating: 4,
+    totalPrice: 200,
+    pricePerGuest: 40,
+    distance: 4500,
+  },
+  {
+    accommodation: {
+      id: '3ebd4752-abf8-4178-96c1-fa73c81ef393',
+      userId: 'f24be8fc-ae70-4744-a85c-8f5e050627e7',
       name: "Helena",
       tags: ["TV", "AC", "WiFi", "Parking"],
       images: [
@@ -352,8 +397,8 @@ export const accommodationResults = [
   },
   {
     accommodation: {
-      id: 3,
-      name: "Helena",
+      id: '4ebd4752-abf8-4178-96c1-fa73c81ef394',
+      userId: 'f24be8fc-ae70-4744-a85c-8f5e050627e7',
       tags: ["TV", "AC", "WiFi", "Parking"],
       images: [
         "https://cf.bstatic.com/xdata/images/hotel/max1024x768/137008976.jpg?k=6a65a39ca1a6195c1c8cda5936ef8aa6b9b70f6769e327664072ee175e8abc0d&o=&hp=1",
@@ -373,49 +418,8 @@ export const accommodationResults = [
   },
   {
     accommodation: {
-      id: 4,
-      name: "Helena",
-      tags: ["TV", "AC", "WiFi", "Parking"],
-      images: [
-        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/137008976.jpg?k=6a65a39ca1a6195c1c8cda5936ef8aa6b9b70f6769e327664072ee175e8abc0d&o=&hp=1",
-      ],
-      location: {
-        id: 1,
-        name: "Bla bla",
-        fullAddress: "fsdfjk dskf ksd",
-        lon: 19.001,
-        lat: 43.0012,
-      },
-    },
-    rating: 4,
-    totalPrice: 200,
-    pricePerGuest: 40,
-    distance: 4500,
-  },
-  {
-    accommodation: {
-      id: 5,
-      name: "Helena",
-      tags: ["TV", "AC", "WiFi", "Parking"],
-      images: [
-        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/137008976.jpg?k=6a65a39ca1a6195c1c8cda5936ef8aa6b9b70f6769e327664072ee175e8abc0d&o=&hp=1",
-      ],
-      location: {
-        id: 1,
-        name: "Bla bla",
-        fullAddress: "fsdfjk dskf ksd",
-        lon: 19.001,
-        lat: 43.0012,
-      },
-    },
-    rating: 4,
-    totalPrice: 200,
-    pricePerGuest: 40,
-    distance: 4500,
-  },
-  {
-    accommodation: {
-      id: 6,
+      id: '1e77c66c-f316-423e-a677-3ad243439c16',
+      userId: '3758dd13-96cb-4a24-97b9-342564edfb7a',
       name: "Helena",
       tags: ["TV", "AC", "WiFi", "Parking"],
       images: [

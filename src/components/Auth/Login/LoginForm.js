@@ -21,10 +21,15 @@ export const LoginForm = () => {
     login(loginData)
       .then((res) => {
         sessionStorage.setItem("token", res.data.access_token);
-        // window.location.href = "/";
+        window.location.href = "/";
       })
       .catch((err) => {
-        alert(err.message);
+        if (err.status == 401) {
+          toast.error('Username and password are not correct!')
+        }
+        else {
+          toast.error(err.message);
+        }
       });
   };
 
