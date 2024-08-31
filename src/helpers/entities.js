@@ -161,7 +161,7 @@ export const accommodations = [
     minGuestNum: 1,
     maxGuestNum: 5,
     autoApproceReservation: true,
-    tags: ["fsdgd", "Gdfg", "gfdg", "fsg"],
+    tags: ["Parking", "AC", "Sea View", "Kitchen", "WiFi"],
     images: [],
     location: {
       id: 1,
@@ -175,7 +175,9 @@ export const accommodations = [
       accommodation: null,
       allRangePeriods: [],
       allPatternPeriods: [],
-      price: null,
+      price: {
+        basePrice: 100
+      },
     },
   },
   {
