@@ -1,43 +1,57 @@
 import React from 'react'
 
 const SingleAccommodation = ({ accommodation }) => {
+    const hasTags = accommodation?.tags && accommodation.tags.length > 0;
+    const firstImage = accommodation?.images?.[0] || "img/hotels/d1.jpg";
+    const basePrice = accommodation?.availability?.price?.basePrice;
 
     return (
-        <div class="single-destinations">
-            <div class="thumb">
-                <img className='small-img' src={accommodation.images[0] ?? "img/hotels/d1.jpg"} alt="" />
+        <div className="single-destinations">
+            <div className="thumb">
+                <img className="small-img" src={firstImage} alt={accommodation?.name || "Accommodation image"} />
             </div>
-            <div class="details">
-                <h4 class="d-flex justify-content-between">
-                    <span>{accommodation?.name ?? "Title"}</span>
-                    {/* OVDE RATING calc !!!*/}
-                    {/* <div class="star">
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span>
-                    </div> */}
+            <div className="details">
+                <h4 className="d-flex justify-content-between">
+                    <span>{accommodation?.name || "Title"}</span>
+                    {/* Rating calculation can be implemented here */}
+                    {/* Uncomment and implement rating if needed
+                    <div className="star">
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star checked"></span>
+                        <span className="fa fa-star"></span>
+                    </div>
+                    */}
                 </h4>
                 <p>View on map | 49 Reviews</p>
-                <ul class="package-list">
-                    {accommodation?.tags && accommodation.tags.slice(0, 5).map(tag =>
-                        <li class="d-flex justify-content-between align-items-center">
-                            <span>{tag}</span>
-                            <span>Yes</span>
+                <ul className="package-list">
+                    {hasTags ? (
+                        accommodation.tags.slice(0, 5).map((tag, index) => (
+                            <li key={index} className="d-flex justify-content-between align-items-center">
+                                <span>{tag}</span>
+                                <span>Yes</span>
+                            </li>
+                        ))
+                    ) : (
+                        <li className="d-flex justify-content-between align-items-center">
+                            <span>No tags available</span>
                         </li>
                     )}
                     <li className="d-flex justify-content-between align-items-center">
                         <span>Daily price</span>
-                        <a href={`/accommodations/${accommodation?.id}`} className="price-btn">
-                            {accommodation.availability.price?.basePrice} €
-                        </a>
+                        {basePrice ? (
+                            <a href={`/accommodations/${accommodation?.id}`} className="price-btn">
+                                {basePrice} €
+                            </a>
+                        ) : (
+                            <span>Price not available</span>
+                        )}
                     </li>
                 </ul>
             </div>
         </div>
-
-    )
+    );
 }
 
-export default SingleAccommodation
+export default SingleAccommodation;
