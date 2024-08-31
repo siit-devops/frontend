@@ -19,7 +19,7 @@ const MyRoutes = () => {
       <Route exact path="/accommodations" element={<Accommodations hideTop={false} displayNum={6} />} />
       <Route exact path="/my-accommodations" element={<MyAccommodations />} />
       <Route exact path="/accommodations/create" element={<AccommodationModify accommodation={null} />} />
-
+      <Route exact path="/accommodations/update/:id" element={<AccommodationModify accommodation={null} />} />
     </Routes>
   );
 };
