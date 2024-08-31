@@ -1,0 +1,94 @@
+.modern-accommodation-card {
+  max-width: 350px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: #ffffff;
+  transition: transform 0.2s, box-shadow 0.2s;
+  margin: 20px;
+}
+
+.modern-accommodation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.accommodation-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s;
+}
+
+.modern-accommodation-card:hover .accommodation-image {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9em;
+}
+
+.details {
+  padding: 20px;
+}
+
+.title {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.reviews {
+  font-size: 0.9em;
+  color: #888;
+  margin-bottom: 15px;
+}
+
+.tags-container {
+  margin-bottom: 15px;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #007bff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin: 3px 5px 3px 0;
+  font-size: 0.8em;
+}
+
+.no-tags {
+  color: #999;
+  font-size: 0.9em;
+}
+
+.more-info-btn {
+  display: inline-block;
+  background-color: #e49d06;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: background-color 0.2s;
+}
+
+.more-info-btn:hover {
+  background-color: #b47d05;
+}

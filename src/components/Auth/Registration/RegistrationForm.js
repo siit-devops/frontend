@@ -57,7 +57,17 @@ export const RegistrationForm = () => {
         });
       })
       .catch((err) => {
-        toast.error(err.message);
+        if (err.status == 400) {
+          toast.error(err.response.data)
+          // toast.error('Invalid values in input fields. All fields are required!')
+        }
+        else if (err.status == 409) {
+          toast.error('User with given email or username already exist!')
+        }
+        else {
+          toast.error(err.message);
+        }
+        
       });
   };
 
