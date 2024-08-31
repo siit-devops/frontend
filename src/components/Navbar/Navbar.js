@@ -27,7 +27,7 @@ export const Navbar = () => {
                 <li>
                   <Link to="/home">Home</Link>
                 </li>
-                {(!role || role === "GUEST") && (
+                {(!role || role === "ROLE_GUEST") && (
                 <li>
                   <Link to="/accommodations">Accommodations</Link>
                 </li>
@@ -37,7 +37,7 @@ export const Navbar = () => {
                     <Link to="/login">Login</Link>
                   </li>
                 )}
-                {role === "HOST" && (
+                {role === "ROLE_HOST" && (
                   <li>
                     <Link to="/my-accommodations">My Accommodations</Link>
                   </li>
