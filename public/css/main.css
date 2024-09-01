@@ -924,8 +924,6 @@ th {
 }
 
 .section-top-border {
-    position: relative;
-    top: 80px;
     padding: 50px 0;
     border-top: 1px dotted #eee;
 }

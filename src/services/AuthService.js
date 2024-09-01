@@ -20,16 +20,16 @@ export const getRole = () => {
 
   const decoded = jwtDecode(token);
 
-  return decoded.realm_access.roles[0];
+  return decoded.realm_access.roles;
 };
 
-export const getUserId = () => {
+export const getUerId = () => {
   const token = sessionStorage.getItem("token");
   if (!token) return "";
 
   const decoded = jwtDecode(token);
 
-  return decoded.sub;
+  return decoded.userId;
 };
 
 export const logout = () => {
@@ -41,5 +41,5 @@ export const getDecodedUsername = () => {
   const token = sessionStorage.getItem("token");
   if (!token) return "";
 
-  return jwtDecode(token).preferred_username;
+  return jwtDecode(token).sub;
 };

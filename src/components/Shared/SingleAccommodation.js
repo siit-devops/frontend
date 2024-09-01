@@ -20,7 +20,7 @@ const SingleAccommodation = ({ accommodation }) => {
                 <div className="tags-container">
                     {hasTags ? (
                         accommodation.tags.slice(0, 5).map((tag, index) => (
-                            <span key={index} className="single-tag">{tag}</span>
+                            <span key={index} className="tag">{tag}</span>
                         ))
                     ) : (
                         <span className="no-tags">No tags available</span>
