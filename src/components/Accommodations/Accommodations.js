@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import SingleAccommodation from "../Shared/SingleAccommodation";
 import axios from "axios";
 import { accommodations } from "../../helpers/entities";
-
+import { getAllAccommodations } from "../../services/AccommodationService"
 export const Accommodations = ({ hideTop, displayNum }) => {
   
   if (!displayNum)
@@ -10,12 +10,13 @@ export const Accommodations = ({ hideTop, displayNum }) => {
 
   const [Accommodations, setAccommodations] = useState([])
 
-  useEffect(() => { // TODO
-    // axios.get(`http://localhost:8082/api/accommodation`).then(res => {
-    //   if (res.data)
-    //     setAccommodations(res.data)
-    // })
-    setAccommodations(accommodations)
+  useEffect(() => {
+    getAllAccommodations()
+    .then(res => {
+      if (res.data)
+        setAccommodations(res.data)
+    })
+    // setAccommodations(accommodations)
   }, [])
 
   return (
