@@ -23,13 +23,13 @@ export const getRole = () => {
   return decoded.realm_access.roles[0];
 };
 
-export const getUerId = () => {
+export const getUserId = () => {
   const token = sessionStorage.getItem("token");
   if (!token) return "";
 
   const decoded = jwtDecode(token);
 
-  return decoded.userId;
+  return decoded.sub;
 };
 
 export const logout = () => {
@@ -41,5 +41,5 @@ export const getDecodedUsername = () => {
   const token = sessionStorage.getItem("token");
   if (!token) return "";
 
-  return jwtDecode(token).sub;
+  return jwtDecode(token).preferred_username;
 };

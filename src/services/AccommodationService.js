@@ -31,3 +31,11 @@ export const deleteAccommodationById = (id) => {
 export const getAllForHost = () => {
   return axios.get(ACCOMMODATION_PATH + "/host/all");
 }
+
+export const getAccommodationById = (id) => {
+  return axios.get(ACCOMMODATION_PATH + `/${id}`)
+}
+
+export const getAllAccommodations = () => {
+  return axios.get(ACCOMMODATION_PATH)
+}

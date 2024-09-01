@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import "./MyAccommodations.css";
-import axios from "axios";
 import { getAllForHost, deleteAccommodationById } from "../../services/AccommodationService";
 
 
