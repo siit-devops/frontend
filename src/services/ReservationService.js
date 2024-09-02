@@ -5,11 +5,11 @@ const RESERVATION_PATH = "http://localhost:8081/api/reservations";
   // "http://localhost:8090/reservation-service/api/reservations";
 
 export const getMyReservations = (id) => {
-  return axios.get(RESERVATION_PATH + "/user/" + id);
+  return axios.get(RESERVATION_PATH + `?userId=${id}`);
 };
 
 export const getMyReservationsForHost = () => {
-  return axios.get(RESERVATION_PATH + "/hosts?reservationStatuses=PENDING"); // todo adjust to our api
+  return axios.get(RESERVATION_PATH + "/hosts?reservationStatuses=PENDING");
 };
 
 export const cancelReservation = (id) => {

@@ -310,8 +310,8 @@ export const accommodations = [
 export const accommodationResults = [
   {
     accommodation: {
-      id: '3e77c66c-f316-423e-a677-3ad243439c16',
-      userId: '3758dd13-96cb-4a24-97b9-342564edfb7a',
+      id: '4a4da8e4-5f76-48ab-874e-51a1abe16254',
+      userId: '8b7d56bd-cc2d-46f2-b27b-c63a1cab7af2',
       name: "Helenaaaa",
       tags: ["TV", "AC", "WiFi", "Parking"],
       images: [
