@@ -11,15 +11,14 @@ export const SearchResults = () => {
   const [accommodations, setAccommodations] = useState([]);
 
   useEffect(() => {
-    // TODO
-    // search(location.state)
-    //   .then((res) => {
-    //     setAccommodations(res.data);
-    //   })
-    //   .catch((err) => {
-    //     alert(err.message);
-    //   });
-    setAccommodations(accommodationResults);
+    search(location.state)
+      .then((res) => {
+        setAccommodations(res.data);
+      })
+      .catch((err) => {
+        alert(err.message);
+      });
+    // setAccommodations(accommodationResults);
   }, []);
 
   const makeReservation = (result) => {

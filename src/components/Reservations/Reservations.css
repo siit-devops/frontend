@@ -1,0 +1,70 @@
+.progress-table .table-head .user,
+.progress-table .table-head .accommodation,
+.progress-table .table-head .guests-num,
+.progress-table .table-head .price,
+.progress-table .table-head .start,
+.progress-table .table-head .end,
+.progress-table .table-head .status {
+    color: #222222;
+    line-height: 40px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.progress-table .user {
+    width: 8%;
+    padding-left: 30px;
+}
+
+.progress-table .accommodation {
+    width: 15%;
+}
+
+.progress-table .guests-num {
+    width: 13%;
+}
+
+.progress-table .price {
+    width: 20%;
+    padding-right: 50px;
+}
+
+.progress-table .start {
+    width: 10%;
+    padding-left: 30px;
+}
+
+.progress-table .end {
+    width: 10%;
+}
+
+.progress-table .status {
+    width: 10%;
+}
+
+.progress-table .btn1 {
+    width: 6%;
+}
+
+.progress-table .table-row div {
+    display: flex;
+    align-items: center;
+}
+
+.reservation {
+    padding: 1rem;
+    margin: 1rem;
+    box-shadow: 5px 5px 5px gray;
+}
+
+.res-thumb {
+    position: relative;
+}
+
+.res-pointer {
+    cursor: pointer;
+}
+
+.res-thumb img {
+    width: 100%;
+}

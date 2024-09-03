@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 const hostNotificationTypes = [
   {value: "NEW_RESERVATION", str: "New Reservation"},
   {value: "CANCELED_RESERVATION", str: "Canceled Reservation"},
-  {value: "WITHDRAW_RESERVATION", str: "Withdrawed Reservation"},
+  {value: "WITHDRAWN_RESERVATION", str: "Withdrawn Reservation"},
   {value: "HOST_RATING", str: "Host Rating"},
   {value: "ACCOMMODATION_RATING", str: "Accommodation Rating"},
 ];
@@ -165,7 +165,7 @@ export const RegistrationForm = () => {
               <p>Processed Reservation Request</p>
               <div className="primary-checkbox">
                 <input
-                  name="PROCESSED_REQUEST"
+                  name="RESERVATION_RESPONSE"
                   type="checkbox"
                   id="default-checkbox"
                   onChange={handleChange}

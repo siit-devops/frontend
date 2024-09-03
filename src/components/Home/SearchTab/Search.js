@@ -32,6 +32,9 @@ export const Search = () => {
     if (searchData.from == null || searchData.to == null) {
       toast.error('Start and End dates are required')
     }
+    if (searchData.location == null) {
+      toast.error('Location is required')
+    }
     else {
       navigate("/results", { state: searchData });
     }
