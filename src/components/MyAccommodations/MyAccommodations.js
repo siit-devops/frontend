@@ -60,7 +60,7 @@ export const MyAccommodations = () => {
                   </div> */}
                   &nbsp;
                   <div class="btn1">
-                    <a href={"/accommodations/update/" + r.id} class="genric-btn primary">View/Update</a>
+                    <a href={"/accommodations/update/" + r.id} class="genric-btn primary">Update</a>
                   </div>
                   &nbsp;
                   <div class="btn1">

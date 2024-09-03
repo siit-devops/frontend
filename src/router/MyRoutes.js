@@ -9,6 +9,7 @@ import MyAccommodations from "../components/MyAccommodations/MyAccommodations";
 import AccommodationModify from "../components/Accommodations/AccommodationModify/AccommodationModify";
 import Accommodation from "../components/Accommodations/Accommodation/Accommodation";
 import Reservations from "../components/Reservations/Reservations";
+import Notifications from "../components/Notifications/Notifications";
 
 const MyRoutes = () => {
   return (
@@ -24,6 +25,7 @@ const MyRoutes = () => {
       <Route exact path="/accommodations/update/:id" element={<AccommodationModify accommodation={null} />} />
       <Route exact path="/accommodations/:id" element={<Accommodation />} />
       <Route exact path="/my-reservations" element={<Reservations />} />
+      <Route exact path="/my-notifications" element={<Notifications />} />
 
     </Routes>
   );
