@@ -1,0 +1,102 @@
+/* styles.css */
+.container {
+  margin: 0 auto;
+  padding: 2px;
+  font-family: "Arial", sans-serif;
+  color: #333;
+}
+
+h3 {
+  text-align: center;
+  color: #4a90e2;
+}
+
+button {
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.availability-box {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 15px;
+  margin: 15px 0;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.availability-box h4 {
+  color: #333;
+}
+
+.availability-box label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.date-inputs {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.availability-box input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.seasonal-Pricing,
+.unavailable-Slot {
+  margin-top: 10px;
+}
+
+.seasonal-Pricing h5,
+.unavailable-Slot h5 {
+  color: #4a90e2;
+  margin-bottom: 10px;
+}
+
+.seasonal-Pricing > div,
+.unavailable-Slot > div {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #fff;
+}
+
+.seasonal-Pricing input,
+.unavailable-Slot input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.Pricing-box,
+.Slot-box {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #fff;
+}
+
+.remove-btn {
+  background-color: #e94e3d;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.remove-btn:hover {
+  background-color: #d43c2d;
+}

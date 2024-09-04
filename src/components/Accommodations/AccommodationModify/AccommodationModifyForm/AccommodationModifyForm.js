@@ -1,41 +1,36 @@
 import { useState } from "react";
-import AccommodationPatternInput from "../../../Shared/AccommodationPatternInput";
-import AccommodationRangeInput from "../../../Shared/AccommodationRangeInput";
-import UpdateAccommodationRange from "../../../Shared/UpdateAccommodationRange";
-import UpdateAccommodationPattern from "../../../Shared/UpdateAccommodationPattern";
-import UpdateAccommodationPriceRange from "../../../Shared/UpdateAccommodationPriceRange";
-import UpdateAccommodationPricePattern from "../../../Shared/UpdateAccommodationPricePattern";
-import PriceRangeInput from "../../../Shared/PriceRangeInput";
-import PricePatternInput from "../../../Shared/PricePatternInput";
 import LocationSelect from "../../../Shared/LocationSelect";
 import ImageUploader from "../../../ImageUploader/ImageUploader";
+import AvailabilityInput from "../../../Availability/AvailabilityInput";
 import axios from "axios";
 
 export const AccommodationModifyForm = ({ accommodation }) => {
-
-  const [isUpdate, setisUpdate] = useState(!!accommodation)
-  const [id, setid] = useState(accommodation?.id ?? null)
-  const [availabilityId, setavailabilityId] = useState(accommodation?.availability?.id ?? null)
-  const [userId, setuserId] = useState(accommodation?.userId ?? null)
-  const [Name, setName] = useState(accommodation?.name ?? "")
-  const [Desccription, setDesccription] = useState(accommodation?.description ?? "")
-  const [MinGuest, setMinGuest] = useState(accommodation?.minGuestNum ?? 0)
-  const [MaxGuest, setMaxGuest] = useState(accommodation?.maxGuestNum ?? 10)
-  const [AutoApprove, setAutoApprove] = useState(accommodation?.autoApproveReservation ?? false)
-  const [Location, setLocation] = useState(accommodation?.location ?? "")
+  const [isUpdate, setisUpdate] = useState(!!accommodation);
+  const [id, setid] = useState(accommodation?.id ?? null);
+  const [userId, setuserId] = useState(accommodation?.userId ?? null);
+  const [Name, setName] = useState(accommodation?.name ?? "");
+  const [Desccription, setDesccription] = useState(
+    accommodation?.description ?? ""
+  );
+  const [MinGuest, setMinGuest] = useState(accommodation?.minGuestNum ?? 0);
+  const [MaxGuest, setMaxGuest] = useState(accommodation?.maxGuestNum ?? 10);
+  const [AutoApprove, setAutoApprove] = useState(
+    accommodation?.autoApproveReservation ?? false
+  );
+  const [Location, setLocation] = useState(accommodation?.location ?? "");
   const [tags, setTags] = useState(accommodation?.tags ?? []);
   const [images, setImages] = useState(accommodation?.images ?? []);
-  const [AvailabilityRanges, setAvailabilityRanges] = useState(accommodation?.availability?.allRangePeriods ?? [])
-  const [AvailabilityPattern, setAvailabilityPattern] = useState(accommodation?.availability?.allPatternPeriods[0] ?? { dayOfWeek: [] })
-  const [Price, setPrice] = useState(accommodation?.availability?.price ?? { basePrice: 10, byPerson: false, priceRules: [] })
+  const [availabilities, setAvailabilities] = useState(
+    accommodation?.availabilities ?? []
+  );
   const [currentTag, setCurrentTag] = useState("");
   const [currentImage, setCurrentImage] = useState("");
-  const [Page, setPage] = useState(0)
+  const [Page, setPage] = useState(0);
 
   const addTag = () => {
     if (currentTag.trim() === "") {
-      alert("Tag value cannot be blank!")
-      return
+      alert("Tag value cannot be blank!");
+      return;
     }
     tags.push(currentTag);
     setTags([...tags]);
@@ -67,8 +62,21 @@ export const AccommodationModifyForm = ({ accommodation }) => {
   };
 
   const nextPage = () => {
-    setPage(page => (page + 1) % 3)
-  }
+    setPage((page) => (page + 1) % 3);
+  };
+
+  const previousPage = () => {
+    setPage((page) => (page - 1) % 3);
+  };
+
+  const isFinite = () => {
+    return (
+      availabilities.length > 0 &&
+      availabilities.every(
+        (a) => a.slot.startDate && a.slot.endDate && a.price.basePrice
+      )
+    );
+  };
 
   const buildDTO = () => {
     const location = {
@@ -76,19 +84,9 @@ export const AccommodationModifyForm = ({ accommodation }) => {
       fullAddress: Location.locationName ?? Location.name,
       lon: Location.longitude ?? Location.lon,
       lat: Location.latitude ?? Location.lat,
-    }
+    };
 
-
-    const availability = {
-      allRangePeriods: AvailabilityRanges,
-      allPatternPeriods: [AvailabilityPattern],
-      price: Price
-    }
-
-    if (Location.id)
-      location.id = Location.id
-    if (availabilityId)
-      availability.id = availabilityId
+    if (Location.id) location.id = Location.id;
 
     const accommodation = {
       name: Name,
@@ -99,8 +97,8 @@ export const AccommodationModifyForm = ({ accommodation }) => {
       tags: tags,
       images: images,
       location: location,
-      availability: availability,
-    }
+      availabilities: availabilities,
+    };
 
     if (id) {
       accommodation.id = id;
@@ -108,37 +106,58 @@ export const AccommodationModifyForm = ({ accommodation }) => {
     }
 
     return accommodation;
-  }
+  };
 
   const finish = () => {
     const dto = buildDTO();
     if (window.confirm("Finished setting up all data?")) {
       if (!isUpdate) {
-        axios.post("http://localhost:8082/api/accommodation", dto).then(res => {
-          if (res.data)
-            window.location.href = '/my-accommodations'
-        })
+        axios
+          .post("http://localhost:8082/api/accommodation", dto)
+          .then((res) => {
+            if (res.data) window.location.href = "/my-accommodations";
+          });
       } else {
-        axios.put("http://localhost:8082/api/accommodation", dto).then(res => {
-          if (res.data) {
-            console.log(res.data)
-            //redirect?
-            window.location.href = '/my-accommodations'
-          }
-        })
+        axios
+          .put("http://localhost:8082/api/accommodation", dto)
+          .then((res) => {
+            if (res.data) {
+              console.log(res.data);
+              //redirect?
+              window.location.href = "/my-accommodations";
+            }
+          });
       }
     } else {
       return null;
     }
+  };
 
-  }
+  const previousBtn = (
+    <button
+      className="primary-btn"
+      disabled={Page === 0}
+      onClick={previousPage}
+    >
+      Previous
+    </button>
+  );
 
-  const nextBtn = <button className="primary-btn" disabled={Page === 3} onClick={nextPage}>NEXT</button>
-  const finishBtn = <button className={!!Price.basePrice && !!Name ? "finish-btn" : "finish-btn disabled"} disabled={Page === 3} onClick={finish}>FINISH</button>
+  const nextBtn = (
+    <button className="primary-btn" disabled={Page === 3} onClick={nextPage}>
+      NEXT
+    </button>
+  );
+
+  const finishBtn = (
+    <button className="primary-btn" onClick={finish}>
+      FINISH
+    </button>
+  );
 
   return (
     <div class="section-top-border">
-      {Page === 0 ?
+      {Page === 0 ? (
         <div class="row d-flex  justify-content-center">
           <div class="col-lg-6 col-md-6">
             <div className="d-flex justify-content-between mb-30">
@@ -154,7 +173,7 @@ export const AccommodationModifyForm = ({ accommodation }) => {
                   required
                   class="single-input"
                   value={Name}
-                  onChange={e => setName(e.target.value)}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div class="mt-10">
@@ -165,7 +184,7 @@ export const AccommodationModifyForm = ({ accommodation }) => {
                   required
                   class="single-textarea"
                   value={Desccription}
-                  onChange={e => setDesccription(e.target.value)}
+                  onChange={(e) => setDesccription(e.target.value)}
                 />
               </div>
               {/* <div class="mt-10">
@@ -173,14 +192,16 @@ export const AccommodationModifyForm = ({ accommodation }) => {
                 <input type="number" name="price" required class="single-input" />
               </div> */}
               <div class="mt-10">
-                <label placeholder="Min guests number:">Min guests number</label>
+                <label placeholder="Min guests number:">
+                  Min guests number
+                </label>
                 <input
                   type="number"
                   name="minGuestNum"
                   required
                   class="single-input"
                   value={MinGuest}
-                  onChange={e => setMinGuest(e.target.value)}
+                  onChange={(e) => setMinGuest(e.target.value)}
                 />
               </div>
               <div class="mt-10">
@@ -193,19 +214,25 @@ export const AccommodationModifyForm = ({ accommodation }) => {
                   required
                   class="single-input"
                   value={MaxGuest}
-                  onChange={e => setMaxGuest(e.target.value)}
+                  onChange={(e) => setMaxGuest(e.target.value)}
                 />
               </div>
               <div class="switch-wrap d-flex mt-10">
                 <label>Auto approve reservation</label>
                 <div class="primary-switch ml-10">
-                  <input type="checkbox" id="default-switch"
-                    onChange={e => setAutoApprove(e.target.checked)} />
+                  <input
+                    type="checkbox"
+                    id="default-switch"
+                    onChange={(e) => setAutoApprove(e.target.checked)}
+                  />
                   <label for="default-switch"></label>
                 </div>
               </div>
               <div class="mt-10">
-                <LocationSelect location={Location} setLocation={setLocation}></LocationSelect>
+                <LocationSelect
+                  location={Location}
+                  setLocation={setLocation}
+                ></LocationSelect>
               </div>
             </form>
             <h3 class="mb-30 mt-30">Tags</h3>
@@ -216,7 +243,10 @@ export const AccommodationModifyForm = ({ accommodation }) => {
                   className="row mt-10 d-flex align-items-center justify-content-between"
                 >
                   <h4>{tag}</h4>
-                  <button className="primary-btn" onClick={() => removeTag(tag)}>
+                  <button
+                    className="primary-btn"
+                    onClick={() => removeTag(tag)}
+                  >
                     Remove tag
                   </button>
                 </div>
@@ -258,123 +288,37 @@ export const AccommodationModifyForm = ({ accommodation }) => {
               </div>
             </div>
           </div>
-        </div> : <></>
-      }
-      {Page === 1 ?
+        </div>
+      ) : (
+        <></>
+      )}
+      {Page === 1 ? (
         <div class="row d-flex  justify-content-center">
           <div class="col-lg-6 col-md-6">
             <div className="d-flex justify-content-between mb-30">
               <h3 class="my-30">Availability information</h3>
-              {nextBtn}
+              {previousBtn}
+              {isFinite() ? finishBtn : nextBtn}
             </div>
             <div class="container mt-5">
-              <ul class="nav nav-tabs">
-                <li class="nav-item">
-                  <a class="nav-link active" data-toggle="tab" href="#tab1">Range Availability</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#tab2">Pattern Availability</a>
-                </li>
-              </ul>
-
               <div class="tab-content mt-3">
                 <div id="tab1" class="tab-pane fade show active">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col">
-                        {isUpdate ?
-                          <UpdateAccommodationRange AvailabilityRanges={AvailabilityRanges} setAvailabilityRanges={setAvailabilityRanges}></UpdateAccommodationRange>
-                          :
-                          <AccommodationRangeInput AvailabilityRanges={AvailabilityRanges} setAvailabilityRanges={setAvailabilityRanges} ></AccommodationRangeInput>
-                        }
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div id="tab2" class="tab-pane fade">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col">
-                        <AccommodationPatternInput AvailabilityPattern={AvailabilityPattern} setAvailabilityPattern={setAvailabilityPattern} ></AccommodationPatternInput>
-                      </div>
+                  <div class="row">
+                    <div class="col">
+                      <AvailabilityInput
+                        availabilities={availabilities}
+                        setAvailabilities={setAvailabilities}
+                      ></AvailabilityInput>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
-        </div> : <></>}
-      {Page === 2 ?
-        <div class="row d-flex  justify-content-center">
-          <div class="col-lg-6 col-md-6">
-            <div className="d-flex justify-content-between mb-30">
-              <h3 class="my-30">Pricing information</h3>
-              <div>
-                {nextBtn}
-                &nbsp;
-                {finishBtn}
-              </div>
-            </div>
-            <div className="d-flex justify-content-between">
-              <div class="px-10">
-                <input type="text" class="form-control" placeholder="Daily Price" value={Price.basePrice}
-                  onChange={e => setPrice(old => {
-                    return { ...old, basePrice: e.target.value }
-                  })} />
-              </div>
-            </div>
-            <div class="switch-wrap d-flex mt-10 px-10">
-              <label>Display Price By Guest {`(`}Total is default {`)`}</label>
-              <div class="primary-switch ml-10">
-                <input type="checkbox" id="default-switch" checked={Price.byPerson}
-                  onChange={e => setPrice(old => {
-                    return { ...old, byPerson: e.target.checked }
-                  })} />
-                <label for="default-switch"></label>
-              </div>
-            </div>
-            <div class="container mt-5">
-              <ul class="nav nav-tabs">
-                <li class="nav-item">
-                  <a class="nav-link active" data-toggle="tab" href="#tab1">Period Price Rules</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" data-toggle="tab" href="#tab2">Pattern Price Rules</a>
-                </li>
-              </ul>
-              <div class="tab-content mt-3">
-                <div id="tab1" class="tab-pane fade show active">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col">
-                        {isUpdate ?
-                          <UpdateAccommodationPriceRange price={Price} setPrice={setPrice}></UpdateAccommodationPriceRange>
-                          :
-                          <PriceRangeInput price={Price} setPrice={setPrice}></PriceRangeInput>
-                        }
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div id="tab2" class="tab-pane fade">
-                  <div class="container">
-                    <div class="row">
-                      <div class="col">
-                        {isUpdate ?
-                          <UpdateAccommodationPricePattern price={Price} setPrice={setPrice}></UpdateAccommodationPricePattern>
-                          :
-                          <PricePatternInput price={Price} setPrice={setPrice}></PricePatternInput>
-                        }
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div> : <></>}
+        </div>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
