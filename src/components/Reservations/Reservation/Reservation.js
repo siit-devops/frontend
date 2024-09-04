@@ -1,5 +1,5 @@
 import { getRole } from "../../../services/AuthService";
-// import RatingForm from "../../Shared/RatingForm/RatingForm";
+import RatingForm from "../../Shared/RatingForm/RatingForm";
 
 export const Reservation = ({ reservation, cancelRes, acceptRes, denyRes }) => {
   const checkCanceling = (reservation) => {
@@ -10,7 +10,6 @@ export const Reservation = ({ reservation, cancelRes, acceptRes, denyRes }) => {
       return false;
     let difference =
       new Date().getTime() - new Date(reservation.startDate).getTime();
-    console.log(Math.ceil(difference / (1000 * 3600 * 24)));
     return Math.ceil(difference / (1000 * 3600 * 24)) < 1;
   };
 
@@ -28,7 +27,7 @@ export const Reservation = ({ reservation, cancelRes, acceptRes, denyRes }) => {
                 )}
               </div>
             </div>
-            <div className="col-lg-3">
+            <div className="col-lg-2">
               <h3 className="res-pointer" onClick={() =>(window.location.href = "/accommodations/" + reservation.accommodationId)}>{reservation.accommodationName}</h3>
               <label className="mt-3">Guest:</label>
               <h6>{reservation.guestName}</h6>
@@ -76,8 +75,8 @@ export const Reservation = ({ reservation, cancelRes, acceptRes, denyRes }) => {
                   </>
                 )}
             </div>
-            {/* {getRole() == "ROLE_GUEST" && ( todo
-              <div className="col-lg-4">
+            {getRole() == "ROLE_GUEST" && (
+              <div className="col-lg-3">
                 <RatingForm
                   subjectId={reservation.accommodationId}
                   type={"ACCOMMODATION-RATING"}
@@ -87,7 +86,7 @@ export const Reservation = ({ reservation, cancelRes, acceptRes, denyRes }) => {
                   type={"HOST-RATING"}
                 />
               </div>
-            )} */}
+            )}
           </div>
         </div>
       </div>

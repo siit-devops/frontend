@@ -55,9 +55,6 @@ export const MyAccommodations = () => {
                   <div class="name w-50">{r.name}</div>
                   <div class="description w-50">{r.description}</div>
                   <div class="location w-50">{r?.location?.name ?? "Not Specified"}</div>
-                  {/* <div class="btn1">
-                    <a href={"/accommodation/" + r.id} class="genric-btn primary">View</a>
-                  </div> */}
                   &nbsp;
                   <div class="btn1">
                     <a href={"/accommodations/update/" + r.id} class="genric-btn primary">Update</a>

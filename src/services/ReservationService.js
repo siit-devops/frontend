@@ -24,11 +24,12 @@ export const dnyReservation = (id) => {
   return axios.put(RESERVATION_PATH + "/hosts/respond/" + id + "?accepted=false");
 };
 
-export const userHasPreviousReservations = (userId, accommodationId) => {
+export const userHasPreviousReservations = (userId, hostId) => {
+  
   return axios.get(
     RESERVATION_PATH + "?userId=" + userId +
-      "&accommodationId=" + accommodationId +
-      "&status=CANCELED,INVALID,PENDING,ACCEPTED"
+      "&hostId=" + hostId +
+      "&statuses=DONE,ACCEPTED"
   );
 };
 
@@ -36,7 +37,7 @@ export const userStayedIn = (userId, accommodationId) => {
   return axios.get(
     RESERVATION_PATH + "?userId=" + userId +
       "&accommodationId=" + accommodationId +
-      "&status=ACCEPTED,IN_PROGRESS,DONE"
+      "&statuses=DONE,ACCEPTED"
   );
 };
 

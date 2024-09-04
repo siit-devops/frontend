@@ -3,7 +3,7 @@ import CustomMap from "./Map/CustomMap";
 import { ImagesSection } from "./ImagesSection/ImagesSection";
 import "./Accommodation.css";
 import IssuerSection from "./IssuerSection/IssuerSection";
-// import { Ratings } from "../../Ratings/Ratings"; TODO
+import { Ratings } from "../../Ratings/Ratings";
 import { getAccommodationById } from "../../../services/AccommodationService";
 import Map from "../../Map/Map";
 import React, { useState, useEffect } from 'react';
@@ -74,7 +74,7 @@ export const Accommodation = () => {
                 </div>
               </div>
               <div className="container border-top mt-4 pt-3">
-                {/* <Ratings id={accommodation.id} type="" /> */}
+                <Ratings id={accommodation.id} type="" />
               </div>
               <div className="container border-top mt-4">
                 <IssuerSection

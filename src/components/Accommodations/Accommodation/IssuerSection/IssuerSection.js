@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./IssuerSection.css";
-// import { Ratings } from "../../../Ratings/Ratings"; TODO
+import { Ratings } from "../../../Ratings/Ratings";
 import { getUserId } from "../../../../services/AuthService";
 import { deleteAccommodationById } from "../../../../services/AccommodationService";
 import { toast } from "react-toastify";
@@ -8,7 +8,9 @@ import { toast } from "react-toastify";
 export const IssuerSection = ({ user, accommodationId }) => {
   const [stars, setStars] = useState([]);
   const [userId, setUserId] = useState("");
-
+  console.log('user');
+  console.log(user);
+  
   useEffect(() => {
     let checked = [];
     for (let index = 0; index < user.rating; index++) {
@@ -68,7 +70,7 @@ export const IssuerSection = ({ user, accommodationId }) => {
         )}
       </div>
       <div className="col-lg-7">
-        {/* <Ratings id={user.id} type="HOST_RATINGS" /> */}
+        <Ratings id={user.id} type="HOST_RATINGS" />
       </div>
     </div>
   );
