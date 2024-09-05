@@ -119,7 +119,7 @@ export const AccommodationModifyForm = ({ accommodation }) => {
           });
       } else {
         axios
-          .put("http://localhost:8082/api/accommodation", dto)
+          .put("http://localhost:8082/api/accommodation/update/" + id, dto)
           .then((res) => {
             if (res.data) {
               console.log(res.data);
@@ -223,6 +223,7 @@ export const AccommodationModifyForm = ({ accommodation }) => {
                   <input
                     type="checkbox"
                     id="default-switch"
+                    checked={AutoApprove}
                     onChange={(e) => setAutoApprove(e.target.checked)}
                   />
                   <label for="default-switch"></label>

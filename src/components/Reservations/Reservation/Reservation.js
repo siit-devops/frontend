@@ -46,9 +46,9 @@ export const Reservation = ({ reservation, cancelRes, acceptRes, denyRes }) => {
             </div>
             <div className="col-lg-2">
               <label>Total price:</label>
-              <h6>{reservation.totalPrice} €</h6>
-              <label className="mt-3">Price by guest:</label>
-              <h6>{reservation.priceByGuest} €</h6>
+              <h6>{(reservation.totalPrice).toFixed(2)} €</h6>
+              <label className="mt-3">Price per guest:</label>
+              <h6>{(reservation.totalPrice / reservation.guestNumber).toFixed(2)} €</h6>
               {getRole() == "ROLE_GUEST" && checkCanceling(reservation) && (
                 <button
                   className="primary-btn mt-3"
