@@ -1,0 +1,22 @@
+.notification {
+    background-color: rgb(253, 253, 253);
+    border-left: 4px solid gray;
+    min-height: 100px;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 5px 5px rgb(222, 247, 255);
+}
+
+.green {
+    border-left: 4px solid rgb(123, 222, 123);
+}
+
+.red {
+    border-left: 4px solid rgb(255, 124, 124);
+}
+
+.yellow {
+    border-left: 4px solid rgb(255, 255, 149);
+}
