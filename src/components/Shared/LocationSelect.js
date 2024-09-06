@@ -7,6 +7,7 @@ export const LocationSelect = ({location, setLocation }) => {
 
   const handleChange = (e) => {
     setAddress(e.target.value);
+    if (e.target.value === '') return;
     const apiKey = "f3054a1d87444384a7e9f1465229d975";
     var url = `https://api.geoapify.com/v1/geocode/autocomplete?text=${encodeURIComponent(
       e.target.value

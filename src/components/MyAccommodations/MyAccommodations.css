@@ -17,6 +17,10 @@
     width: 15%;
 }
 
+.name-elem {
+    cursor: pointer;
+}
+
 .progress-table .description {
     width: 25%;
 }

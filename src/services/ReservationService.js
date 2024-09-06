@@ -9,7 +9,7 @@ export const getMyReservations = (id) => {
 };
 
 export const getMyReservationsForHost = () => {
-  return axios.get(RESERVATION_PATH + "/hosts?reservationStatuses=PENDING");
+  return axios.get(RESERVATION_PATH + "/hosts");
 };
 
 export const cancelReservation = (id) => {

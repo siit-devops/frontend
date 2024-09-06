@@ -35,6 +35,8 @@ function App() {
     if (isLoaded && getUserId() != "") {
       stompClient.subscribe("/socket-publisher/" + getUserId(), (alarm) => {
         if (cnt % 2 === 0) {
+          console.log(alarm);
+          
           toast(alarm.body);
         }
         cnt++;

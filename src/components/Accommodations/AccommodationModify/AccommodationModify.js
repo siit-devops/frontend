@@ -8,7 +8,7 @@ export const AccommodationModify = ({ accommodation }) => {
   const [Accommodation, setAccommodation] = useState(null)
   useEffect(() => {
     if (id)
-      axios.get(`http://localhost:8082/api/accommodation/${id}`).then(res => {
+      axios.get(`http://localhost:8082/api/accommodation/full/${id}`).then(res => {
         setAccommodation(res.data)
       }).catch(err => {
         return

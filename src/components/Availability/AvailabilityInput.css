@@ -1,17 +1,17 @@
 /* styles.css */
-.container {
+.a-input .container {
   margin: 0 auto;
   padding: 2px;
   font-family: "Arial", sans-serif;
   color: #333;
 }
 
-h3 {
+.a-input h3 {
   text-align: center;
   color: #4a90e2;
 }
 
-button {
+.a-input button {
   color: white;
   border: none;
   border-radius: 5px;
@@ -19,7 +19,7 @@ button {
   margin-bottom: 10px;
 }
 
-.availability-box {
+.a-input .availability-box {
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 15px;
@@ -28,41 +28,41 @@ button {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.availability-box h4 {
+.a-input .availability-box h4 {
   color: #333;
 }
 
-.availability-box label {
+.a-input .availability-box label {
   display: block;
   margin-top: 10px;
   font-weight: bold;
 }
 
-.date-inputs {
+.a-input .date-inputs {
   display: flex;
   justify-content: space-between;
   gap: 10px;
 }
 
-.availability-box input {
+.a-input .availability-box input {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-.seasonal-Pricing,
-.unavailable-Slot {
+.a-input .seasonal-Pricing,
+.a-input .unavailable-Slot {
   margin-top: 10px;
 }
 
-.seasonal-Pricing h5,
-.unavailable-Slot h5 {
+.a-input .seasonal-Pricing h5,
+.a-input .unavailable-Slot h5 {
   color: #4a90e2;
   margin-bottom: 10px;
 }
 
-.seasonal-Pricing > div,
-.unavailable-Slot > div {
+.a-input .seasonal-Pricing > div,
+.a-input .unavailable-Slot > div {
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 10px;
@@ -70,16 +70,16 @@ button {
   background-color: #fff;
 }
 
-.seasonal-Pricing input,
-.unavailable-Slot input {
+.a-input .seasonal-Pricing input,
+.a-input .unavailable-Slot input {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-top: 5px;
 }
 
-.Pricing-box,
-.Slot-box {
+.a-input .Pricing-box,
+.a-input .Slot-box {
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 10px;
@@ -87,7 +87,7 @@ button {
   background-color: #fff;
 }
 
-.remove-btn {
+.a-input .remove-btn {
   background-color: #e94e3d;
   color: white;
   padding: 5px 10px;
@@ -97,6 +97,6 @@ button {
   margin-top: 10px;
 }
 
-.remove-btn:hover {
+.a-input .remove-btn:hover {
   background-color: #d43c2d;
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./MyAccommodations.css";
 import { getAllForHost, deleteAccommodationById } from "../../services/AccommodationService";
-
+import { toast } from "react-toastify";
 
 export const MyAccommodations = () => {
 
@@ -25,9 +25,13 @@ export const MyAccommodations = () => {
         window.location.href = "/my-accommodations"
       })
       .catch((err) => {
-        alert(err.message)
+        toast.error(err.response.data)
       })
     }
+  }
+
+  const redirectTo = (id) => {
+    window.location.href = '/accommodations/' + id
   }
 
   return (
@@ -52,7 +56,7 @@ export const MyAccommodations = () => {
               {accommodations && accommodations.map((r) => (
                 <div class="table-row" key={r.id}>
                   {/* <div class="user">{r.userId}</div> */}
-                  <div class="name w-50">{r.name}</div>
+                  <div class="name w-50 name-elem" onClick={e => redirectTo(r.id)}>{r.name}</div>
                   <div class="description w-50">{r.description}</div>
                   <div class="location w-50">{r?.location?.name ?? "Not Specified"}</div>
                   &nbsp;

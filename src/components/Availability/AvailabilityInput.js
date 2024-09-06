@@ -160,6 +160,7 @@ const AvailabilityInput = ({ availabilities, setAvailabilities }) => {
   };
 
   return (
+    <div className="a-input">
     <div className="container">
       <h3>Create Accommodation</h3>
       <button className="primary-btn" onClick={addAvailability}>
@@ -418,6 +419,7 @@ const AvailabilityInput = ({ availabilities, setAvailabilities }) => {
           </div>
         </div>
       ))}
+    </div>
     </div>
   );
 };

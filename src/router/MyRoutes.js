@@ -10,6 +10,7 @@ import AccommodationModify from "../components/Accommodations/AccommodationModif
 import Accommodation from "../components/Accommodations/Accommodation/Accommodation";
 import Reservations from "../components/Reservations/Reservations";
 import Notifications from "../components/Notifications/Notifications";
+import MyProfile from "../components/Profile/MyProfile";
 
 const MyRoutes = () => {
   return (
@@ -26,6 +27,7 @@ const MyRoutes = () => {
       <Route exact path="/accommodations/:id" element={<Accommodation />} />
       <Route exact path="/my-reservations" element={<Reservations />} />
       <Route exact path="/my-notifications" element={<Notifications />} />
+      <Route exact path="/my-profile" element={<MyProfile />} />
 
     </Routes>
   );
