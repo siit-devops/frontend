@@ -57,7 +57,7 @@ export const UpdateProfile = () => {
         window.location.href = "/home";
       })
       .catch((err) => {
-        toast.error(err.message);
+        toast.error(err.response.data);
       });
   };
 
